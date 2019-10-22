@@ -1,0 +1,102 @@
+﻿<p id="userStatus"> </p>
+<button id="checkButton"> перевырити статус користувача</button>
+
+<form id="loginForm">
+    <!-- важливо вказати тип авторизації -->
+    <input type="hidden" name="Grant_type" value="password" />
+    <input type="email" name="Username" placeholder="Введіть E-mail" />
+    <input type="password" name="Password" id="Password" placeholder="Введіть пароль" />
+    <input type="button" id="loginSubmit" value="Увійти" />
+</form>
+<script src="~/Scripts/Login.js" defer></script>
+
+<table class="table thead-dark" id="bookTable">
+    <thead>
+        <!--Рядок заголовків-->
+        <tr>
+            <th>
+                Назва
+            </th>
+            <th>
+                Автор
+            </th>
+            <th>
+                Рік видання
+            </th>
+            <th>
+                Кількість сторінок
+            </th>
+            <th>
+                Ціна
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--список книг виводити сюди  -->
+    </tbody>
+</table>
+
+<!--форма для запиту  -->
+<form name="queryForm" id="queryForm">
+    <div class="form-group">
+        <label for="QueryYear">
+            Рік видання
+        </label>
+        <!--важливо щоб імена полів співпадали з параметрами запиту -->
+        <input type="number" name="Year" id="QueryYear" value="2019" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="MaxPrice">
+            Максимальна ціна
+        </label>
+        <input type="number" name="MaxPrice" id="MaxPrice" step="0.01" value="1000.50" class="form-control" />
+    </div>
+    <button id="querySubmit" class="btn btn-success">
+        Шукати
+    </button>
+</form>
+<!-- Кнопка додати -->
+<button id="addBook" class="btn btn-lg"> Додати </button>
+<!--форма для додавання і редагування книги-->
+<form name="bookForm" id="bookForm">
+    <input type="hidden" name="Id" value="-1" />
+    <div class="form-group">
+        <label for="Title">
+            Назва
+        </label>
+        <!--важливо щоб імена полів співпадали з полями моделі -->
+        <input type="text" name="Title" id="Title" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Author">
+            Автор
+        </label>
+        <input type="text" name="Author" id="Author" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Pages">
+            Кількість сторінок
+        </label>
+        <input type="number" name="Pages" id="Pages" value="0" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Year">
+            Рік видання
+        </label>
+        <input type="number" name="Year" id="Year" value="2019" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Price">
+            ціна
+        </label>
+        <input type="number" name="Price" id="Price" step="0.01" value="0.00" class="form-control" />
+    </div>
+    <button id="bookSubmit" class="btn btn-success">
+        Додати
+    </button>
+</form>
+
+
+<!-- Скріпт з логікою -->
+<script src="~/Scripts/testApi.js" defer></script>
+
